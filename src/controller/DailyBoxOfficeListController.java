@@ -60,7 +60,6 @@ public class DailyBoxOfficeListController extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("utf8");
 		response.getWriter().write(dailyBoxOfficeList);
-
 	}
 
 	@Override
