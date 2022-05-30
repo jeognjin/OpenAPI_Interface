@@ -130,11 +130,24 @@ $(document).on("click","#dailyBoxOfficeListGraph",function() {
 		var $canvas = $('<canvas id="myChart2" style="width:100%;max-width:500px;">').appendTo($("#dailyBoxOfficeListGraphResult"));
 		var $canvas = $('<canvas id="myChart3" style="width:100%;max-width:500px;">').appendTo($("#dailyBoxOfficeListGraphResult"));
 		
-		
+		//x,y축 값을 넣어줄 arry 생성
 		var xValues = [];
 		var yValues = [];
-		var barColors = ["red", "green","blue","orange","brown", "yellow", "navy", "violet"];
+		var barColors = [
+			/* "red", "green","blue","orange","brown", "yellow", "navy", "violet" */
+			'rgba(255, 99, 132, 0.7)',
+			'rgba(54, 162, 235, 0.7)',
+			'rgba(255, 206, 86, 0.7)',
+			'rgba(75, 12, 192, 0.7)',
+			'rgba(163, 102, 255, 0.7)',
+			'rgba(155, 159, 64, 0.7)',
+			'rgba(13, 159, 64, 0.7)',
+			'rgba(195, 159, 64, 0.7)',
+			'rgba(235, 159, 64, 0.7)',
+			'rgba(26, 79, 84, 0.7)'
+			];
 
+		//item에서 값을 추출해서 array에 저장
 	for(var i = 0; i < 10; i++){
 			xValues[i] = item[i].movieNm;
 		}
@@ -142,6 +155,8 @@ $(document).on("click","#dailyBoxOfficeListGraph",function() {
 	for(var i = 0; i < 10; i++){
 			yValues[i] = item[i].audiAcc;
 		}
+	
+		//차트 생성 bar타입
 		new Chart("myChart", {
 		  type: "bar",
 		  data: {
@@ -160,7 +175,7 @@ $(document).on("click","#dailyBoxOfficeListGraph",function() {
 		  }
 		});
 		
-		
+		//pie 타입
 		new Chart("myChart2", {
 			  type: "pie",
 			  data: {
@@ -178,6 +193,7 @@ $(document).on("click","#dailyBoxOfficeListGraph",function() {
 			  }
 			});
 		
+		//도넛 타입
 		new Chart("myChart3", {
 			  type: "doughnut",
 			  data: {
@@ -195,8 +211,6 @@ $(document).on("click","#dailyBoxOfficeListGraph",function() {
 			  }
 			});
 		
-		
-
 	});
 });
 
